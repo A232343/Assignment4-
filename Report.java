@@ -3,7 +3,6 @@ package accidentpack;
 /**
  * This class's different methods calculate Fibonacci numbers.
  * @author Abdullahi Abdullahi
- * @version 2/9/2024
  */
 import java.io.BufferedReader;
 import java.util.ArrayList;
