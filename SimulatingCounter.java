@@ -18,26 +18,26 @@ public class SimulatingCounter {
 	 * 
 	 * @param accidentReports
 	 */
-	public static void simulateProcessing(ArrayList<Report> accidentReports) {
+	public static void simulateProcessing(ArrayList<Accident> accidentReports, int counters) {
 
 		int processingTime = 0;
-		int totalMinutes = 7200;
+		int totalMinutes = counters * 24 * 60;
 		int remainingTime = totalMinutes;
-		Queue<Report> reportQueue = new LinkedList<>();
-		for (Accident report : accidentReport) {
+		Queue<Accident> reportQueue = new LinkedList<>();
+		for (Accident report : accidentReports) {
 
-// check if the report occured on the same day
-			if (report.getStart_Time().toLocalDate().equals(LocalDate.now())) {
+// check if the report occurred on the same day
+			if (report.getStart_Time().equals(LocalDate.now())) {
 				reportQueue.add(report);
 			}
 
 			while (reportQueue.isEmpty() == false) {
-				Report r = reportQueue.poll();
-				int severity = report.getSeverity();
+				Accident accidentreport = reportQueue.poll();
+				int severity = accidentreport.getSeverity();
 				processingTime = severity * 60;
 			}
 
-// check if there is engough time to process the report on the same day
+// check if there is enough time to process the report on the same day
 
 			if (processingTime <= remainingTime) {
 				remainingTime -= processingTime;
